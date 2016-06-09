@@ -52,8 +52,8 @@
 		<!-- com.google.litecoin.* -->
 		<dependency>
 			<groupId>com.google</groupId>
-			<artifactId>litecoinj</artifactId>
-			<version>0.10.3.1-trunk</version>
+			<artifactId>colchestercoinj</artifactId>
+			<version>0.10.1.1</version>
 		</dependency>
 
 		<!-- de.schildbach.litecoinwalletinwallet.integration.android.* -->
@@ -200,7 +200,7 @@
 				<artifactId>findbugs-maven-plugin</artifactId>
 				<version>2.5.2</version>
 				<configuration>
-					<onlyAnalyze>de.schildbach.litecoinwallet.-</onlyAnalyze>
+					<onlyAnalyze>de.schildbach.colchestercoinwallet.-</onlyAnalyze>
 				</configuration>
 			</plugin>
 		</plugins>
