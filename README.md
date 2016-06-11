@@ -1,4 +1,4 @@
-Welcome to _Bitcoin Wallet_, a standalone Bitcoin payment app for your Android device!
+Welcome to _Colchestercoin Wallet_, a standalone Colchestercoin payment app for your Android device!
 
 This project contains several sub-projects:
 
@@ -10,7 +10,7 @@ This project contains several sub-projects:
      A tiny library for integrating Bitcoin payments into your own Android app
      (e.g. donations, in-app purchases).
  * __sample-integration-android__:
-     A minimal example app to demonstrate integration of Bitcoin payments into
+     A minimal example app to demonstrate integration of Colchestercoin payments into
      your Android app.
 
 You can build all sub-projects at once using Maven:
