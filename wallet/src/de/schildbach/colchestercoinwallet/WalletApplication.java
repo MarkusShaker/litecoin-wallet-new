@@ -125,7 +125,7 @@ public class WalletApplication extends Application
 			@Override
 			public void uncaughtException(final Thread thread, final Throwable throwable)
 			{
-				log.info("litecoinj uncaught exception", throwable);
+				log.info("colchestercoinj uncaught exception", throwable);
 				CrashReporter.saveBackgroundTrace(throwable, packageInfo);
 			}
 		};
@@ -276,7 +276,7 @@ public class WalletApplication extends Application
 
 				wallet = new WalletProtobufSerializer().readWallet(walletStream);
 
-				log.info("litecoinwallet loaded from: '" + walletFile + "', took " + (System.currentTimeMillis() - start) + "ms");
+				log.info("colchesterwallet loaded from: '" + walletFile + "', took " + (System.currentTimeMillis() - start) + "ms");
 			}
 			catch (final FileNotFoundException x)
 			{
