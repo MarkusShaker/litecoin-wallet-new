@@ -82,6 +82,8 @@ import de.schildbach.colchestercoinwallet.util.CrashReporter;
 import de.schildbach.colchestercoinwallet.util.GenericUtils;
 import de.schildbach.colchestercoinwallet.util.WalletUtils;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * @author Andreas Schildbach
  */
@@ -510,6 +512,7 @@ public class BlockchainServiceImpl extends android.app.Service implements Blockc
 		public void onReceive(final Context context, final Intent intent)
 		{
 			final int chainHeight = blockChain.getBestChainHeight();
+			log.info("History of tchainheight: " + chainHeight);
 
 			if (lastChainHeight > 0)
 			{
@@ -614,7 +617,7 @@ public class BlockchainServiceImpl extends android.app.Service implements Blockc
 		final Wallet wallet = application.getWallet();
 
 		bestChainHeightEver = prefs.getInt(Constants.PREFS_KEY_BEST_CHAIN_HEIGHT_EVER, 0);
-
+		log.info("bestChainHeightEver: " + bestChainHeightEver);
 		peerConnectivityListener = new PeerConnectivityListener();
 
 		sendBroadcastPeerState(0);
@@ -625,8 +628,9 @@ public class BlockchainServiceImpl extends android.app.Service implements Blockc
 		intentFilter.addAction(Intent.ACTION_DEVICE_STORAGE_OK);
 		registerReceiver(connectivityReceiver, intentFilter);
 
-		blockChainFile = new File(getDir("blockstore", Context.MODE_PRIVATE), Constants.BLOCKCHAIN_FILENAME);
+		blockChainFile = new File(getDir("cblockstore", Context.MODE_PRIVATE), Constants.BLOCKCHAIN_FILENAME);
 		final boolean blockChainFileExists = blockChainFile.exists();
+		log.info("blockchain exists="+blockChainFileExists);
 
 		if (!blockChainFileExists)
 		{
@@ -646,15 +650,15 @@ public class BlockchainServiceImpl extends android.app.Service implements Blockc
 
 			if (!blockChainFileExists && earliestKeyCreationTime > 0)
 			{
-				try
-				{
-					final InputStream checkpointsInputStream = getAssets().open(Constants.CHECKPOINTS_FILENAME);
-					CheckpointManager.checkpoint(Constants.NETWORK_PARAMETERS, checkpointsInputStream, blockStore, earliestKeyCreationTime);
-				}
-				catch (final IOException x)
-				{
-					log.error("problem reading checkpoints, continuing without", x);
-				}
+//				try
+//				{
+//					final InputStream checkpointsInputStream = getAssets().open(Constants.CHECKPOINTS_FILENAME);
+//					CheckpointManager.checkpoint(Constants.NETWORK_PARAMETERS, checkpointsInputStream, blockStore, earliestKeyCreationTime);
+//				}
+//				catch (final IOException x)
+//				{
+//					log.error("problem reading checkpoints, continuing without", x);
+//				}
 			}
 		}
 		catch (final BlockStoreException x)

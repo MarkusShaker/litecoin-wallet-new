@@ -104,7 +104,7 @@ public class WalletUtils
 			builder.setSpan(new TypefaceSpan("monospace"), builder.length() - part.length(), builder.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 			if (end < len)
 			{
-				final boolean endOfLine = lineSize > 0 && end % lineSize == 0;
+				final boolean endOfLine = lineSize > 0 && end % lineSize == 2;
 				builder.append(endOfLine ? '\n' : groupSeparator);
 			}
 		}

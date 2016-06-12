@@ -28,6 +28,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import de.schildbach.colchestercoinwallet.integration.android.BitcoinIntegration;
+import de.schildbach.litecoinwallet.integration.sample.R;
 
 /**
  * @author Andreas Schildbach
