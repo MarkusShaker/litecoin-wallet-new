@@ -42,6 +42,7 @@ import java.util.TimeZone;
 
 import javax.annotation.Nonnull;
 
+import android.app.Activity;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import de.schildbach.colchestercoinwallet.R;
@@ -175,6 +176,8 @@ public final class WalletActivity extends AbstractOnDemandServiceActivity
 	@Override
 	public void onActivityResult(final int requestCode, final int resultCode, final Intent intent)
 	{
+		if(resultCode == Activity.RESULT_CANCELED) return;
+
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
 
 		if (result != null)
